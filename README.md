@@ -1,6 +1,6 @@
 Spell Loop
 ==========
-Loop over different languages in Vim spell check
+Loop over different languages in Vim spell check.
 
 
 Installation
@@ -11,9 +11,11 @@ manager.
 
 Usage
 -----
+The function `SpellLoop()` does all the work.
+
 This is part of my `.vimrc` file:
 ```vim
 let g:spell_list = ["none", "en", "it"]
 map <silent> <space>s :call SpellLoop()<CR>
 ```
-By default `g:spell_list` contains only **en** and **none**.
+If not changed by user `g:spell_list` contains only **en** and **none**.
