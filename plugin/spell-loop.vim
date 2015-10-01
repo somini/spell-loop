@@ -24,6 +24,10 @@ function! SpellLoop_Init()
     endif
 endfunction
 
+function! SpellLoop_ToggleSpell()
+    setlocal invspell
+endfunction
+
 function! s:SpellGet()
     return index(g:spell_list,&spelllang)
 endfunction
