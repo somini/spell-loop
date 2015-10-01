@@ -15,6 +15,7 @@ function! SpellLoop()
     else
         call <SID>SpellSet((l:old_idx + 1) % len(g:spell_list))
     endif
+    call <SID>SpellAutocmd()
 endfunction
 
 function! SpellLoop_Init()
@@ -26,6 +27,7 @@ endfunction
 
 function! SpellLoop_ToggleSpell()
     setlocal invspell
+    call <SID>SpellAutocmd()
 endfunction
 
 function! s:SpellGet()
@@ -43,5 +45,11 @@ function! s:SpellSet(num)
 
     if !exists('g:spellloop_quiet') || !g:spellloop_quiet
         echo "Current Spelling Language: " . l:spell
+    endif
+endfunction
+
+function! s:SpellAutocmd()
+    if exists('#User#SpellingLanguageChange')
+        doautocmd User SpellingLanguageChange
     endif
 endfunction
