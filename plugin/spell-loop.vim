@@ -23,6 +23,7 @@ function! SpellLoop_Init()
         " Set the current language to the first in the list
         call s:SpellSet(0)
     endif
+    call <SID>SpellAutocmd()
 endfunction
 
 function! SpellLoop_ToggleSpell()
